@@ -1,4 +1,4 @@
-ML.Met
+ML.Net
 ========
 Coursera's Machine Leaarning course assignement implemented in DotNet Core using Visual Studio Code.
 
