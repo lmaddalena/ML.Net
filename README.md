@@ -42,15 +42,17 @@ For population = 70,000, we predict a profit of 45342.4501
 
 Plot of data and linear fit
 
-![Linear Regression](https://github.com/lmaddalena/ML.Net/tree/master/ex1/images/LinearRegression.png)
+![linearregression](https://user-images.githubusercontent.com/10128332/53450815-861cae80-3a1d-11e9-9167-e77c7c82739a.png)
 
 
 **Cost function J**
+
 Surface plot of cost function J
 
-![Cost function J](https://github.com/lmaddalena/ML.Net/tree/master/ex1/images/CostJ.png)
+![costj](https://user-images.githubusercontent.com/10128332/53450988-f6c3cb00-3a1d-11e9-91ee-dff92f62c9bd.png)
 
 **Contour plot of cost function J**
+
 Countour plot of cost function J
 
-![Cost function J](https://github.com/lmaddalena/ML.Net/tree/master/ex1/images/contour.png)
+![contour](https://user-images.githubusercontent.com/10128332/53451004-03e0ba00-3a1e-11e9-95af-96cb077f972c.png)
