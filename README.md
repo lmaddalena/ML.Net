@@ -1,6 +1,6 @@
 ML.Net
 ========
-Coursera's Machine Leaarning course assignement implemented in DotNet Core using Visual Studio Code.
+Coursera's Machine Learning course assignement implemented in DotNet Core using Visual Studio Code.
 
 Numerical computations are made using the MathNet libraries (https://www.mathdotnet.com/). 
 For plotting I'm using GnuPlot (http://www.gnuplot.info/) interfaced with the GnuplotCSharp library implemented by James Morris aka AwokeKnowing (https://github.com/AwokeKnowing/GnuplotCSharp)
