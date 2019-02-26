@@ -40,19 +40,15 @@ For population = 70,000, we predict a profit of 45342.4501
 
 ```
 
-Plot of data and linear fit
+**Plot of data and linear fit**
 
 ![linearregression](https://user-images.githubusercontent.com/10128332/53450815-861cae80-3a1d-11e9-9167-e77c7c82739a.png)
 
 
 **Cost function J**
 
-Surface plot of cost function J
-
 ![costj](https://user-images.githubusercontent.com/10128332/53450988-f6c3cb00-3a1d-11e9-91ee-dff92f62c9bd.png)
 
 **Contour plot of cost function J**
-
-Countour plot of cost function J
 
 ![contour](https://user-images.githubusercontent.com/10128332/53451004-03e0ba00-3a1e-11e9-95af-96cb077f972c.png)
