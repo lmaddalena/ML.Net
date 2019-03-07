@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex1", "ex1\ex1.csproj", "{D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnuplotCSharp", "GnuplotCSharp\GnuplotCSharp.csproj", "{CA7FBB56-BA75-4572-A2E1-9B9356043F89}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex1_multi", "ex1_multi\ex1_multi.csproj", "{DFA00327-E0EA-4EFC-B55F-49975ED107CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,5 +46,17 @@ Global
 		{CA7FBB56-BA75-4572-A2E1-9B9356043F89}.Release|x64.Build.0 = Release|Any CPU
 		{CA7FBB56-BA75-4572-A2E1-9B9356043F89}.Release|x86.ActiveCfg = Release|Any CPU
 		{CA7FBB56-BA75-4572-A2E1-9B9356043F89}.Release|x86.Build.0 = Release|Any CPU
+		{DFA00327-E0EA-4EFC-B55F-49975ED107CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFA00327-E0EA-4EFC-B55F-49975ED107CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFA00327-E0EA-4EFC-B55F-49975ED107CB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DFA00327-E0EA-4EFC-B55F-49975ED107CB}.Debug|x64.Build.0 = Debug|Any CPU
+		{DFA00327-E0EA-4EFC-B55F-49975ED107CB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DFA00327-E0EA-4EFC-B55F-49975ED107CB}.Debug|x86.Build.0 = Debug|Any CPU
+		{DFA00327-E0EA-4EFC-B55F-49975ED107CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFA00327-E0EA-4EFC-B55F-49975ED107CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFA00327-E0EA-4EFC-B55F-49975ED107CB}.Release|x64.ActiveCfg = Release|Any CPU
+		{DFA00327-E0EA-4EFC-B55F-49975ED107CB}.Release|x64.Build.0 = Release|Any CPU
+		{DFA00327-E0EA-4EFC-B55F-49975ED107CB}.Release|x86.ActiveCfg = Release|Any CPU
+		{DFA00327-E0EA-4EFC-B55F-49975ED107CB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
