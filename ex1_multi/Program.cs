@@ -85,8 +85,69 @@ namespace ex1_multi
             PlotJ(res_grad4.J_history, "{/Symbol a}=" + alpha, "green");
 
             GnuPlot.HoldOff();
+            
+
+            // Display gradient descent's result
+            System.Console.WriteLine("Theta computed from gradient descent: \n");
+            System.Console.WriteLine(res_grad4.theta);
+            System.Console.WriteLine("\n");
+
+            // Estimate the price of a 1650 sq-ft, 3 br house
+            // Recall that the first column of X is all-ones. Thus, it does
+            // not need to be normalized.
+            double x1 = 1650;
+            double x2 = 3;
+
+            x1 = (x1 - norm_res.mu[0,0]) / norm_res.sigma[0,0];
+            x2 = (x2 - norm_res.mu[0,1]) / norm_res.sigma[0,1];
+
+            Matrix<double> K = Matrix<double>.Build.DenseOfRowArrays(new double[]{1, x1, x2});
+            System.Console.WriteLine("K is:");
+            System.Console.WriteLine(K);
+            double price = (K * res_grad4.theta)[0,0];
+
+            System.Console.WriteLine("Predicted price of a 1650 sq-ft, 3 br house (using gradient descent):\n ${0:f}\n", price);
 
             Pause();
+
+            // =================================================================
+            // NORMAL EQUATION  
+            // =================================================================
+            System.Console.WriteLine("Solving with normal equations...\n");
+
+            // load data
+            System.Console.WriteLine("Loading data ...\n");
+            data = DelimitedReader.Read<double>("data\\ex1data2.txt", false, ",", false);            
+
+            X = data.SubMatrix(0,data.RowCount,0,2);            
+            y = data.SubMatrix(0,data.RowCount,2,1);            
+            m = X.RowCount;
+
+            // Add intercept term to X
+            X = X.InsertColumn(0, V.Dense(X.RowCount, 1));
+
+            // Calculate the parameters from the normal equation
+            theta = normalEqn(X, y);
+
+            System.Console.WriteLine("Theta computed from the normal equations: \n");
+            System.Console.WriteLine(theta);
+            System.Console.WriteLine("\n");
+
+            K = Matrix<double>.Build.DenseOfRowArrays(new double[]{1, 1650, 3});
+            price = (K * theta)[0,0];
+
+            System.Console.WriteLine("Predicted price of a 1650 sq-ft, 3 br house (using normal equation):\n ${0:f}\n", price);
+
+            Pause();
+        }
+
+        // Compute theta using normal equation
+        private static Matrix<double> normalEqn(Matrix<double> x, Matrix<double> y)
+        {
+            Matrix<double> theta;
+
+            theta = (x.Transpose() * x).PseudoInverse() * x.Transpose() * y;
+            return theta;
         }
 
         private static void PlotJ(Matrix<double> j_history, string title, string color)
@@ -103,7 +164,7 @@ namespace ex1_multi
         // Gradient Descent
         private static (Matrix<double> theta, Matrix<double> J_history) GradientDescentMulti(Matrix<double> x, Matrix<double> y, Matrix<double> theta, double alpha, int num_iters)
         {
-            int m = y.RowCount;
+            double m = y.RowCount;
             Matrix<double> J_history = Matrix<double>.Build.Dense(num_iters, 1);
 
             for(int i = 0; i < num_iters; i++)
@@ -120,7 +181,7 @@ namespace ex1_multi
         private static double ComputeCostMulti(Matrix<double> x, Matrix<double> y, Matrix<double> theta)
         {
             double j;
-            int m = y.RowCount;
+            double m = y.RowCount;
             j = 1 / (2.0 * m) * ((x*theta - y).Transpose() * (x*theta - y))[0,0];
             return j;
         }
