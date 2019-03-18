@@ -132,11 +132,11 @@ namespace ex1
             GnuPlot.Set("ylabel \"{/Symbol q}_1\"");
 
             // surface plot
-            GnuPlot.SPlot(sx, sy, sz, "title \"J({/Symbol q}_0,{/Symbol q}_1)\"");
+            GnuPlot.SPlot(sx, sy, sz, "palette title \"J({/Symbol q}_0,{/Symbol q}_1)\"");
 
             // Contour plot
             GnuPlot.Set("terminal wxt 2");
-            GnuPlot.Set("cntrparam levels 12", "logscale z", "isosamples 2", "xr[-10:10]","yr[-1:4]"); 
+            GnuPlot.Set("cntrparam levels auto 10", "logscale z", "xr[-10:10]", "yr[-1:4]"); 
             GnuPlot.Unset("key", "label");
             GnuPlot.Contour(sx, sy, sz);
 
