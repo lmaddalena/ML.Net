@@ -121,7 +121,7 @@ namespace ex2
             // Compute accuracy on our training set
             Vector<double> pos = LogisticRegression.Predict(X, result.MinimizingPoint);            
             Func<double, double> map = delegate(double d){
-                if(d > 0.5)
+                if(d >= 0.5)
                     return 1;
                 else 
                     return 0;
