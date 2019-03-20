@@ -187,7 +187,7 @@ namespace ex2_reg
 
                 }
             }
-            GnuPlot.Set("cntrparam levels discrete 0.5"); 
+            GnuPlot.Set("cntrparam levels discrete 0"); 
             GnuPlot.Contour(sx, sy, sz, "title \"Decision Boundary\"");
 
         }
