@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex2", "ex2\ex2.csproj", "{D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex2_reg", "ex2_reg\ex2_reg.csproj", "{3EA75874-5B28-49E5-8F6F-25CCC13C0DFB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex3", "ex3\ex3.csproj", "{00BF1728-5660-46A1-BED9-AC2A5F5AC98E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,5 +88,17 @@ Global
 		{3EA75874-5B28-49E5-8F6F-25CCC13C0DFB}.Release|x64.Build.0 = Release|Any CPU
 		{3EA75874-5B28-49E5-8F6F-25CCC13C0DFB}.Release|x86.ActiveCfg = Release|Any CPU
 		{3EA75874-5B28-49E5-8F6F-25CCC13C0DFB}.Release|x86.Build.0 = Release|Any CPU
+		{00BF1728-5660-46A1-BED9-AC2A5F5AC98E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00BF1728-5660-46A1-BED9-AC2A5F5AC98E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00BF1728-5660-46A1-BED9-AC2A5F5AC98E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{00BF1728-5660-46A1-BED9-AC2A5F5AC98E}.Debug|x64.Build.0 = Debug|Any CPU
+		{00BF1728-5660-46A1-BED9-AC2A5F5AC98E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{00BF1728-5660-46A1-BED9-AC2A5F5AC98E}.Debug|x86.Build.0 = Debug|Any CPU
+		{00BF1728-5660-46A1-BED9-AC2A5F5AC98E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00BF1728-5660-46A1-BED9-AC2A5F5AC98E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00BF1728-5660-46A1-BED9-AC2A5F5AC98E}.Release|x64.ActiveCfg = Release|Any CPU
+		{00BF1728-5660-46A1-BED9-AC2A5F5AC98E}.Release|x64.Build.0 = Release|Any CPU
+		{00BF1728-5660-46A1-BED9-AC2A5F5AC98E}.Release|x86.ActiveCfg = Release|Any CPU
+		{00BF1728-5660-46A1-BED9-AC2A5F5AC98E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
