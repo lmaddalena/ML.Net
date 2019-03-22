@@ -31,17 +31,11 @@ namespace ex3
             Dictionary<string,Matrix<double>> ms = MatlabReader.ReadAll<double>("data\\ex3data1.mat");
             
             Matrix<double> X = ms["X"];
-            Matrix<double> y = ms["y"];
+            Vector<double> y = ms["y"].Column(0);
 
             // get a casual sequence of 100 int numbers
             var srs = new MathNet.Numerics.Random.SystemRandomSource();
             var seq = srs.NextInt32Sequence(0, 5000).Take(100).ToList();
-
-            seq[0] = 4999;
-            seq[1] = 1685;
-            seq[2] = 3667;
-            seq[3] = 4054;
-            seq[4] = 1214;
 
             // Randomly select 100 data points to display
             Vector<double>[] sel = new Vector<double>[100];
@@ -55,8 +49,127 @@ namespace ex3
             DisplayData(sel);
             
             Pause();
+
+            //// ============ Part 2a: Vectorize Logistic Regression ============
+            //  In this part of the exercise, you will reuse your logistic regression
+            //  code from the last exercise. You task here is to make sure that your
+            //  regularized logistic regression implementation is vectorized. After
+            //  that, you will implement one-vs-all classification for the handwritten
+            //  digit dataset.
+            //
+
+            // Test case for lrCostFunction
+            System.Console.WriteLine("\nTesting Cost Function with regularization");
+
+            Vector<double> theta_t = V.DenseOfArray(new[]{-2.0, -1, 1, 2});
+
+            Matrix<double> X_t = M.DenseOfArray(new [,] {
+                {1.0, 0.1, 0.6, 1.1},
+                {1.0, 0.2, 0.7, 1.2},
+                {1.0, 0.3, 0.8, 1.3},
+                {1.0, 0.4, 0.9, 1.4},
+                {1.0, 0.5, 1.0, 1.5},                                                
+            });
+            Vector<Double> y_t = V.DenseOfArray(new []{1.0,0,1,0,1});
+            int lambda_t = 3;
+
+            LogisticRegression lr = new LogisticRegression(X_t, y_t);
+            lr.Lambda = lambda_t;
+            double J = lr.Cost(theta_t);
+            Vector<double> grad = lr.Gradient(theta_t);
+
+            System.Console.WriteLine("\nCost: {0:f5}\n", J);
+            System.Console.WriteLine("Expected cost: 2.534819\n");
+            System.Console.WriteLine("Gradients:\n");
+            System.Console.WriteLine(" {0:f5} \n", grad);
+            System.Console.WriteLine("Expected gradients:\n");
+            System.Console.WriteLine(" 0.146561\n -0.548558\n 0.724722\n 1.398003\n");
+
+            Pause();
+
+            //// ============ Part 2b: One-vs-All Training ============
+            System.Console.WriteLine("\nTraining One-vs-All Logistic Regression...\n");
+
+            double lambda = 0.1;
+            int num_labels = 10;
+            Matrix<double> all_theta = OneVsAll(X, y, num_labels, lambda);
+
+            Pause();
+
+            // ================ Part 3: Predict for One-Vs-All ================
+
+            Vector<double> pred = PredictOneVsAll(all_theta, X);
+            Vector<double> comp = V.Dense(y.Count);
+
+            for(int i = 0; i < y.Count; i++)
+            {
+                if(pred[i] == y[i])
+                    comp[i] = 1;
+                else
+                    comp[i] = 0;
+            }
+
+
+            double accuracy = comp.Mean() * 100;
+            System.Console.WriteLine("\nTraining Set Accuracy: {0:f5}\n", accuracy);
+
+            Pause();
+
         }
-        
+
+        private static Vector<double> PredictOneVsAll(Matrix<double> all_theta, Matrix<double> X)
+        {
+            int m = X.RowCount;
+
+            // Add ones to the X data matrix
+            X = X.InsertColumn(0, Vector<double>.Build.Dense(m, 1.0));
+
+            Vector<double> pred = Vector<double>.Build.Dense(m);
+
+            var h = LogisticRegression.Sigmoid(X * all_theta.Transpose());
+            
+            for(int i = 0; i < m; i++)
+            {
+                pred[i] = h.Row(i).MaximumIndex() + 1;
+            }
+
+            return pred;
+        }
+
+        private static Matrix<double> OneVsAll(Matrix<double> X, Vector<double> y, int num_labels, double lambda)
+        {
+            int m = X.RowCount;         // num. of examples
+            int n = X.ColumnCount;      // num of features
+
+            Matrix<double> all_theta = Matrix<double>.Build.Dense(num_labels, n + 1);  // return matrix of theta
+
+            // Add ones to the X data matrix
+            X = X.InsertColumn(0, Vector<double>.Build.Dense(m, 1.0));
+
+            LogisticRegression lr = new LogisticRegression(X, null);
+            var obj = ObjectiveFunction.Gradient(lr.Cost, lr.Gradient);
+            var solver = new BfgsMinimizer(1e-3, 1e-3, 1e-3, 100);    
+            MinimizationResult result;
+
+            for(int c = 1; c <= num_labels; c++)
+            {
+                Vector<double> initial_theta = Vector<double>.Build.Dense(n + 1);
+
+                // set 1 where y==c, 0 otherwise
+                Vector<double> y_t = y.Map(d => (d == (double)c ? 1.0 : 0));
+
+                lr.y = y_t;
+                lr.Lambda = lambda;
+                result = solver.FindMinimum(obj, initial_theta);
+                all_theta.SetRow(c - 1, result.MinimizingPoint);
+                System.Console.WriteLine("Label: {0} | Iterations: {1} | Cost: {2:f5} ", c, result.Iterations, result.FunctionInfoAtMinimum.Value);
+
+            }
+
+            System.Console.WriteLine();
+            return all_theta;
+        }
+
         // convert bitmpa in NTSC (YIQ)
         private static Matrix<double> BitmapToNYSC(Bitmap bmp)
         {
