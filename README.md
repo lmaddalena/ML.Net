@@ -1,9 +1,31 @@
-ML.Net
-========
+# ML.Net
+
 Coursera's Machine Learning course assignement implemented in DotNet Core using Visual Studio Code.
 
 Numerical computations are made using the MathNet libraries (https://www.mathdotnet.com/). 
 For plotting I'm using GnuPlot (http://www.gnuplot.info/) interfaced with the GnuplotCSharp library implemented by James Morris aka AwokeKnowing (https://github.com/AwokeKnowing/GnuplotCSharp)
+
+## Table of Contents
+
+* ex1
+  * Linear Regression with one variable
+* ex1_multi
+  * Linear Regression with multiple variables
+* ex2
+  *  Logistic Regression
+* ex2_reg
+  * Regularized Logistic Regression
+* ex3
+  * Multi-class classification
+* ex3_nn
+  * Neural Networks
+* ex4
+  * Neural Networks Learning
+* ex5
+  * Regularized Linear Regression and Bias v.s. Variance
+
+## Example 
+---
 
 ex1
 --------
