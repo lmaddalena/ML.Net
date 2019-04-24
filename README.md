@@ -25,7 +25,6 @@ For plotting I'm using GnuPlot (http://www.gnuplot.info/) interfaced with the Gn
   * Regularized Linear Regression and Bias v.s. Variance
 
 ## Example 
----
 
 ex1
 --------
