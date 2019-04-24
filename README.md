@@ -26,8 +26,8 @@ For plotting I'm using GnuPlot (http://www.gnuplot.info/) interfaced with the Gn
 
 ## Example 
 
-ex1
---------
+### ex1
+
 **Linear Regresion**
 
 ```
