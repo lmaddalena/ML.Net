@@ -3,7 +3,7 @@
 Coursera's Machine Learning course assignement implemented in DotNet Core using Visual Studio Code.
 
 Numerical computations are made using the MathNet libraries (https://www.mathdotnet.com/). 
-For plotting I'm using GnuPlot (http://www.gnuplot.info/) interfaced with the GnuplotCSharp library implemented by James Morris aka AwokeKnowing (https://github.com/AwokeKnowing/GnuplotCSharp)
+For plotting I'm using GnuPlot (http://www.gnuplot.info/) interfaced with the GnuplotCSharp library implemented by James Morris aka AwokeKnowing (https://github.com/AwokeKnowing/GnuplotCSharp). For Support Vector Machine in exercise 6 I'm using Libsvm.NET (https://github.com/nicolaspanel/libsvm.net).
 
 ## Table of Contents
 
@@ -23,6 +23,8 @@ For plotting I'm using GnuPlot (http://www.gnuplot.info/) interfaced with the Gn
   * Neural Networks Learning
 * ex5
   * Regularized Linear Regression and Bias v.s. Variance
+* ex6
+  * Support Vector Machines
 
 ## Example 
 
